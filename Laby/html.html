@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+
+<body style="background-color:#242121;">
+
+    <canvas id="canvas" width="800" height="600" style="border:1px solid #ffffff"></canvas>
+    <script src="turtle.js"></script>
+    <form onsubmit="return draw(nazwa.value)">
+        <tr>
+            <td><input type="text" name="nazwa"></td>
+            <td><input id="submit" type="submit"></td>
+        </tr>
+
+    </form>
+
+
+
+    <script>
+        function setAction(form) {
+            form.action = "register.html";
+            alert(form.action);
+            return false;
+        }
+    </script>
+    <form onsubmit="return setAction(this)">
+        <div>
+            <label>Name:</label>
+            <input id="name" name="name" type="text">
+        </div>
+        <div>
+            <label>Email:</label>
+            <input id="email" name="email" type="email">
+        </div>
+        <div>
+            <input id="submit" type="submit">
+        </div>
+    </form>
+</body>
+
+</html>
