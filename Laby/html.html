@@ -10,42 +10,83 @@
 
     <canvas id="canvas" width="800" height="600" style="border:1px solid #ffffff"></canvas>
     <script src="turtle.js"></script>
+
+
+    <form onsubmit="return Clear()">
+        <td><input id="submit" type="submit" value="Clear"></td>
+    </form>
+
     <form onsubmit="return draw(nazwa.value)">
         <tr>
             <td><input type="text" name="nazwa"></td>
-            <td><input id="submit" type="submit"></td>
+            <td><input id="submit" type="submit" value="Rysuj"></td>
         </tr>
 
     </form>
 
-    <form onsubmit="return draw_figure(4)">
+    <form onsubmit="return draw_figure(4,'Red')">
         <tr>
-            <td><input type="text" name="nazwa" value="Kwadrat" readonly></td>
-            <td><input id="submit" type="submit"></td>
+            <td><input type="text" name="nazwa" value="Czewrwony kwadrat" readonly></td>
+            <td><input id="submit" type="submit" value="Rysuj"></td>
         </tr>
 
     </form>
-    <form onsubmit="return draw_figure(5)">
+    <form onsubmit="return draw_figure(5,'Blue')">
         <tr>
-            <td><input type="text" name="nazwa" value="Pięciokąt" readonly></td>
-            <td><input id="submit" type="submit"></td>
+            <td><input type="text" name="nazwa" value="Niebieski pięciokąt" readonly></td>
+            <td><input id="submit" type="submit" value="Rysuj"></td>
         </tr>
 
     </form>
-    <form onsubmit="return draw_figure(6)">
+    <form onsubmit="return draw_figure(6,'Pink')">
         <tr>
-            <td><input type="text" name="nazwa" value="Sześciokąt" readonly></td>
-            <td><input id="submit" type="submit"></td>
+            <td><input type="text" name="nazwa" value="Różowy sześciokąt" readonly></td>
+            <td><input id="submit" type="submit" value="Rysuj"></td>
         </tr>
 
     </form>
-    <form onsubmit="return draw_star(7)">
+    <form onsubmit="return draw_figure(3,'White')">
         <tr>
-            <td><input type="text" name="nazwa" value="Gwiazda siedmioramienna" readonly></td>
-            <td><input id="submit" type="submit"></td>
+            <td><input type="text" name="nazwa" value="Biały trójkąt" readonly></td>
+            <td><input id="submit" type="submit" value="Rysuj"></td>
         </tr>
 
     </form>
+
+    <form onsubmit="return draw_figure(n.value,'None','200')">
+        <tr>
+            <p>Dowolny wielokąt, podaj n</p>
+            <td><input type="text" name="n" value="3"></td>
+            <td><input id="submit" type="submit" value="Rysuj"></td>
+        </tr>
+
+    </form>
+    <p>Grafy odpowiednieo pełny oraz dwudzielny</p>
+
+    <form onsubmit="return graph_complete(n.value)">
+        <tr>
+            <td><input type="text" name="n" value="3"></td>
+            <td><input id="submit" type="submit" value="Rysuj"></td>
+        </tr>
+
+    </form>
+    <form onsubmit="return graph_bipartial(n.value)">
+        <tr>
+            <td><input type="text" name="n" value="10"></td>
+            <td><input id="submit" type="submit" value="Rysuj"></td>
+        </tr>
+
+    </form>
+    <p>Trójkąt sierpińskiego n-tego stopnia</p>
+
+    <form onsubmit="return sierpinski(n.value)">
+        <tr>
+            <td><input type="text" name="n" value="3"></td>
+            <td><input id="submit" type="submit" value="Rysuj"></td>
+        </tr>
+
+    </form>
+
 
 
 
