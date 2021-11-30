@@ -233,39 +233,80 @@ function graph_bipartial(n, new_color = color, h = 200) {
     return false;
 }
 
-function triangle(x, y, clr) {
-    ctx.stroke();
-    ctx.closePath();
-    ctx.beginPath();
-    ctx.strokeStyle = "Black";
-    ctx.fillStyle = clr;
-
-    ctx.moveTo(x[0], y[0]);
-    ctx.lineTo(x[1], y[1]);
-    ctx.lineTo(x[2], y[2]);
-    ctx.lineTo(x[0], y[0]);
-    ctx.fill();
-}
-
-function getMid(x) {
-    return [x[0], (x[0] + x[1]) / 2, x[1]];
-}
-
-
-function sierpinski(n, x = [200, 600, 400], y = [500, 500, 346]) {
-
-    var colormap = ['blue', 'red', 'green', 'white', 'yellow', 'violet', 'orange'];
-
-    triangle(x, y, colormap[n % 7]);
-    if (n > 0) {
-        sierpinski(n - 1, getMid(x[0], x[1], getMid(y[0], y[1])));
-        sierpinski(n - 1, getMid(x[2], x[1], getMid(y[2], y[1])));
-        sierpinski(n - 1, getMid(x[2], x[0], getMid(y[2], y[0])));
-
+function sierpinski(n, size, first = false) {
+    if (first) {
+        ctx.moveTo(150, 500);
+        pos = [150, 500];
+        rot = 90;
     }
-    ctx.stroke();
+    if (n > 0) {
+
+        ctx.stroke();
+        ctx.closePath();
+        ctx.beginPath();
+        var colormap = ["Blue", "Red", "Green", "Yellow", "Violet", "Orange"];
+        forward(size);
+        left(120);
+        forward(size);
+        left(120);
+        forward(size);
+        left(120);
+        forward(size);
+        forward(-size);
+        ctx.stroke();
+        ctx.fillStyle = colormap[n % 6];
+        ctx.fill();
+        ctx.stroke();
+        //window.alert("tak");
+
+        sierpinski(n - 1, size / 2);
+
+        //window.alert("nie");
+        forward(size / 2);
+        sierpinski(n - 1, size / 2);
+        //window.alert("moze");
+        left(120);
+        pen_up()
+        forward(size / 2);
+        pen_down();
+        left(-120);
+        sierpinski(n - 1, size / 2);
+        //window.alert("cos")
+        left(-120);
+        forward(size / 2);
+        left(120);
+    }
     return false;
 }
+
+function koch(n, size, first = false) {
+    if (first) {
+        koch(n, size);
+        left(-120);
+        koch(n, size);
+        left(-120);
+        koch(n, size);
+        left(-120);
+        ctx.fillStyle = "white";
+        ctx.fill();
+    } else {
+        if (n > 0) {
+            koch(n - 1, size / 3);
+            left(60);
+            koch(n - 1, size / 3);
+            left(-120);
+            koch(n - 1, size / 3);
+            left(60);
+            koch(n - 1, size / 3);
+        } else {
+            forward(size);
+            ctx.stroke();
+        }
+    }
+    return false;
+}
+
+
 
 function Clear() {
     ctx.clearRect(0, 0, width, height);

@@ -79,7 +79,17 @@
     </form>
     <p>Trójkąt sierpińskiego n-tego stopnia</p>
 
-    <form onsubmit="return sierpinski(n.value)">
+    <form onsubmit="return sierpinski(n.value,500,true)">
+        <tr>
+            <td><input type="text" name="n" value="3"></td>
+            <td><input id="submit" type="submit" value="Rysuj"></td>
+        </tr>
+
+    </form>
+
+    <p>Krzywa kocha n-tego stopnia</p>
+
+    <form onsubmit="return koch(n.value,200,true)">
         <tr>
             <td><input type="text" name="n" value="3"></td>
             <td><input id="submit" type="submit" value="Rysuj"></td>
