@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <img id="img_1">
+    <img id="img_2">
+    <img id="img_3">
+    <img id="img_4">
+    <img id="img_5"><br>
+    <img id="img_6">
+    <img id="img_7">
+    <img id="img_8">
+    <img id="img_9">
+    <img id="img_10"><br>
+    <p id="kolej" style="font-size: xx-large"></p><br>
+    <canvas id='canvas' height='600' width='800' style="border:1px solid #000000;">
+        zmień przeglądarkę
+    </canvas>
+
+
+
+    <script>
+        height = Math.floor(document.getElementById("canvas").height / 4);
+        width = Math.floor(document.getElementById("canvas").width / 5);
+
+        for (var i = 1; i < 11; i++) {
+            document.getElementById("img_" + i.toString()).src = "https://source.unsplash.com/random/" + width.toString() + "x" + height.toString() + "?sig=" + i.toString();
+        }
+    </script>
+    <!--<img src="https://source.unsplash.com/random/200x400">-->
+
+    <script src="zad4.js"></script>
+
+</body>
+
+</html>
