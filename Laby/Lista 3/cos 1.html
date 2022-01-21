@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.3.0/math.min.js></script>
+    <script>
+        function onlyOne(checkbox) {
+            var checkboxes = document.getElementsByName('check')
+            checkboxes.forEach((item) => {
+                if (item !== checkbox) item.checked = false
+            })
+            var item = document.getElementById('Julia');
+
+            if (item.checked) {
+                document.getElementById("julia_real").style.visibility = "visible";
+                document.getElementById("julia_imag").style.visibility = "visible";
+                document.getElementById("julia_param").style.visibility = "visible";
+            } else {
+                document.getElementById("julia_real").style.visibility = "hidden";
+                document.getElementById("julia_imag").style.visibility = "hidden";
+                document.getElementById("julia_param").style.visibility = "hidden";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form onSubmit="return Draw()">
+        <tr>
+            <td>
+                <label for="width">Width</label><br>
+                <input type="text" id="width" name="width" value="800"><br>
+
+            </td>
+            <td>
+                <label for="height">Height</label><br>
+                <input type="text" id="height" name="height" value="600"><br>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="check" id="Mandelbrot" onclick="onlyOne(this)">
+                <label for="Mandelbrot">Mandelbrot</label><br>
+            </td>
+            <td>
+                <input type="checkbox" name="check" id="Julia" onclick="onlyOne(this)">
+                <label for="Julia">Julia</label><br>
+            </td>
+        </tr>
+        <label for="julia_parm" id="julia_param">julia_parm</label><br>
+        <input type=number step=0.01 id="julia_real" name="julia_real" value="0.47">
+        <input type=number step=0.01 id="julia_imag" name="julia_imag" value="-0.7"><br>
+        <script>
+            var item = document.getElementsByName('check');
+            onlyOne(item[0])
+            item[0].checked = true;
+        </script>
+        <input type="submit" value="Rysuj">
+
+    </form>
+    <canvas id='canvas' style="border:1px solid #000000;">
+        zmień przeglądarkę
+    </canvas>
+
+
+    <script src="zad 1.js"></script>
+
+</body>
+
+</html>
