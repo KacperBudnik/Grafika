@@ -68,7 +68,7 @@ function Set_Pixel(x, y, color) {
 function convergent(z0, C, n = 1000) {
     var z = z0;
     for (var i = 0; i < n; i++) {
-        z = [z[0] * z[0] - z[1] * z[1] + C[0], z[0] * z[1] + C[1]]
+        z = [z[0] * z[0] - z[1] * z[1] + C[0], 2 * z[0] * z[1] + C[1]]
         if (z[0] * z[0] + z[1] * z[1] > 4) {
             return false;
         }
