@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.3.0/math.min.js></script>
+    <script>
+        function onlyOne(checkbox) {
+            var checkboxes = document.getElementsByName('check')
+            checkboxes.forEach((item) => {
+                    if (item !== checkbox) item.checked = false
+                })
+                //var item = document.getElementById('Julia');
+
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Grafika 3d</h1>
+    <canvas id="canvas" width="800" height="600" style="border:1px solid #18181a;"></canvas><br>
+
+    <button onclick="turtle.forward()">Draw</button><br>
+
+    <label>Długość&nbsp;</label>
+    <input id="len" value="100"><br>
+    <label>Kąt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+    <input id="angle" value="90"><br>
+
+    <tr>
+        <td>
+            <input type="checkbox" name="check" id="OX" onclick="onlyOne(this)">
+            <label for="OX">OX</label><br>
+        </td>
+        <td>
+            <input type="checkbox" name="check" id="OY" onclick="onlyOne(this)">
+            <label for="OY">OY</label><br>
+        </td>
+        <td>
+            <input type="checkbox" name="check" id="OZ" onclick="onlyOne(this)">
+            <label for="OZ">OZ</label><br>
+        </td>
+
+    </tr>
+
+    <button onclick="rotate()">Rotate</button><br>
+    <button onclick="cube()">Cube</button>
+
+
+    <script type="text/javascript" src="3d.js"></script>
+
+
+</body>
+
+</html>
